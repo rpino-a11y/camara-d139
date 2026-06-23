@@ -337,6 +337,12 @@ function escapeHtml(t) {
 
 window.onload = function() {
   cambiarModo(obtenerModoUrl());
+
+  // Intenta activar la cámara automáticamente al abrir cualquier modo:
+  // registro, atraso o comedor. Si Chrome exige interacción, igual queda el botón "Activar cámara".
+  setTimeout(function() {
+    activarCamara();
+  }, 600);
 };
 </script>
 </body>
