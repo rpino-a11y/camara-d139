@@ -6,101 +6,39 @@
   <title>Cámara rápida estudiantes D-139</title>
   <style>
     :root {
-      --azul:#0f2f55;
-      --azul2:#1d6fb8;
-      --fondo:#f3f8fd;
-      --texto:#172033;
-      --gris:#5f6f84;
-      --borde:#d8e8f5;
-      --verde:#16834a;
-      --naranjo:#c2631a;
-      --rojo:#b91c1c;
+      --azul:#0f2f55; --azul2:#1d6fb8; --fondo:#f3f8fd; --texto:#172033;
+      --gris:#5f6f84; --borde:#d8e8f5; --verde:#16834a; --naranjo:#c2631a; --rojo:#b91c1c;
       --sombra:0 10px 24px rgba(21,61,98,.10);
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      padding:14px;
-      font-family:Arial,Helvetica,sans-serif;
-      color:var(--texto);
-      background:linear-gradient(180deg,#fff 0%,var(--fondo) 100%);
-    }
+    body{margin:0;padding:14px;font-family:Arial,Helvetica,sans-serif;color:var(--texto);background:linear-gradient(180deg,#fff 0%,var(--fondo) 100%)}
     .wrap{max-width:1120px;margin:0 auto}
-    .hero{
-      background:linear-gradient(135deg,#123b66,#1d6fb8);
-      color:white;
-      border-radius:22px;
-      padding:18px;
-      display:grid;
-      grid-template-columns:auto 1fr auto;
-      gap:14px;
-      align-items:center;
-      box-shadow:var(--sombra);
-    }
-    .hero-icon{
-      width:62px;height:62px;border-radius:20px;
-      background:rgba(255,255,255,.18);
-      display:flex;align-items:center;justify-content:center;
-      font-size:32px;
-    }
-    .hero h1{margin:0;font-size:25px}
-    .hero p{margin:5px 0 0;font-size:13px;line-height:1.35;opacity:.95}
-    .badge{
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:16px;
-      padding:10px 12px;
-      font-size:12px;
-      line-height:1.3;
-      min-width:220px;
-    }
-    .estado{
-      display:block;margin-top:12px;padding:13px 14px;border-radius:16px;
-      font-size:13px;line-height:1.4;border:1px solid #bfdbfe;
-      background:#eff6ff;color:#1d4ed8;
-    }
+    .hero{background:linear-gradient(135deg,#123b66,#1d6fb8);color:white;border-radius:22px;padding:18px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;box-shadow:var(--sombra)}
+    .hero-icon{width:62px;height:62px;border-radius:20px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:32px}
+    .hero h1{margin:0;font-size:25px} .hero p{margin:5px 0 0;font-size:13px;line-height:1.35;opacity:.95}
+    .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:10px 12px;font-size:12px;line-height:1.3;min-width:220px}
+    .estado{display:block;margin-top:12px;padding:13px 14px;border-radius:16px;font-size:13px;line-height:1.4;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8}
     .estado.ok{background:#dcfce7;border-color:#bbf7d0;color:#166534}
     .estado.error{background:#fee2e2;border-color:#fecaca;color:#991b1b}
-    .panel{
-      margin-top:12px;background:white;border:1px solid var(--borde);
-      border-radius:20px;padding:15px;box-shadow:0 5px 14px rgba(21,61,98,.07);
-    }
+    .panel{margin-top:12px;background:white;border:1px solid var(--borde);border-radius:20px;padding:15px;box-shadow:0 5px 14px rgba(21,61,98,.07)}
+    .modo-box{display:flex;gap:8px;flex-wrap:wrap}
+    .modo-btn{border:none;border-radius:999px;padding:10px 14px;color:white;font-weight:900;cursor:pointer;background:#64748b}
+    .modo-btn.activo{background:linear-gradient(135deg,#16834a,#1c9b59)}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .full{grid-column:1/-1}
     .campo{display:flex;flex-direction:column;gap:5px}
     label{color:var(--azul);font-size:12px;font-weight:900}
-    input{
-      width:100%;border:1px solid #cbdceb;border-radius:13px;
-      padding:11px 12px;font-size:14px;font-family:Arial,Helvetica,sans-serif;background:white;
-    }
+    input,select{width:100%;border:1px solid #cbdceb;border-radius:13px;padding:11px 12px;font-size:14px;font-family:Arial,Helvetica,sans-serif;background:white}
     .camara-box{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start}
-    video,canvas,.preview{
-      width:100%;border-radius:18px;border:1px solid var(--borde);
-      background:#0f172a;min-height:310px;object-fit:cover;
-    }
-    canvas{display:none}
-    .preview{display:none;background:#f8fbff;min-height:220px;padding:10px}
-    .preview img{width:100%;border-radius:14px}
+    video,canvas,.preview{width:100%;border-radius:18px;border:1px solid var(--borde);background:#0f172a;min-height:310px;object-fit:cover}
+    canvas{display:none} .preview{display:none;background:#f8fbff;min-height:220px;padding:10px} .preview img{width:100%;border-radius:14px}
     .acciones{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-    button{
-      border:none;border-radius:13px;padding:12px 15px;color:white;font-weight:900;
-      font-size:13px;cursor:pointer;background:linear-gradient(135deg,#1d6fb8,#2384e6);
-      box-shadow:0 7px 15px rgba(29,111,209,.18);
-    }
-    button.verde{background:linear-gradient(135deg,#16834a,#1c9b59)}
-    button.naranjo{background:linear-gradient(135deg,#c2631a,#eb8e2a)}
-    button.oscuro{background:linear-gradient(135deg,#0f2f55,#123b66)}
-    button.rojo{background:linear-gradient(135deg,#b91c1c,#dc2626)}
-    button:disabled{background:#94a3b8;cursor:not-allowed}
+    button{border:none;border-radius:13px;padding:12px 15px;color:white;font-weight:900;font-size:13px;cursor:pointer;background:linear-gradient(135deg,#1d6fb8,#2384e6);box-shadow:0 7px 15px rgba(29,111,209,.18)}
+    button.verde{background:linear-gradient(135deg,#16834a,#1c9b59)} button.naranjo{background:linear-gradient(135deg,#c2631a,#eb8e2a)} button.oscuro{background:linear-gradient(135deg,#0f2f55,#123b66)} button.rojo{background:linear-gradient(135deg,#b91c1c,#dc2626)}
     iframe{width:100%;min-height:80px;border:1px solid var(--borde);border-radius:14px;background:white;margin-top:10px}
+    .oculto{display:none!important}
     .nota{font-size:12px;color:#64748b;line-height:1.4;margin-top:8px}
-    @media(max-width:850px){
-      body{padding:10px}
-      .hero{grid-template-columns:1fr;text-align:center}
-      .hero-icon{margin:0 auto}
-      .badge{text-align:left}
-      .grid,.camara-box{grid-template-columns:1fr}
-    }
+    @media(max-width:850px){body{padding:10px}.hero{grid-template-columns:1fr;text-align:center}.hero-icon{margin:0 auto}.badge{text-align:left}.grid,.camara-box{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -108,71 +46,58 @@
   <section class="hero">
     <div class="hero-icon">📸</div>
     <div>
-      <h1>Cámara rápida estudiantes D-139</h1>
-      <p>Registro rápido con cámara en vivo fuera de Apps Script.</p>
+      <h1 id="tituloPrincipal">Cámara rápida estudiantes D-139</h1>
+      <p id="subtituloPrincipal">Registro rápido con cámara en vivo fuera de Apps Script.</p>
     </div>
-    <div class="badge">
-      <strong>Modo:</strong><br>
-      Cámara externa HTTPS
-    </div>
+    <div class="badge"><strong>Modo:</strong><br><span id="modoActualTexto">Registro</span></div>
   </section>
 
-  <div id="estado" class="estado">Presione “Activar cámara”.</div>
+  <div id="estado" class="estado">Cargando módulo...</div>
+
+  <section class="panel">
+    <div class="modo-box">
+      <button type="button" id="btnRegistro" class="modo-btn" onclick="cambiarModo('registro')">Registrar estudiante</button>
+      <button type="button" id="btnAtraso" class="modo-btn" onclick="cambiarModo('atraso')">Atraso</button>
+      <button type="button" id="btnComedor" class="modo-btn" onclick="cambiarModo('comedor')">Comedor</button>
+    </div>
+    <div class="nota">Puede dejar la cámara encendida y cambiar de módulo sin volver a pedir permiso.</div>
+  </section>
 
   <section class="panel">
     <form id="formRegistro" method="POST" action="https://script.google.com/a/macros/cmdsantofagasta.cl/s/AKfycbyTd4KrRTDpJnrdUUAxMSWcdSAgE4SPnJGlfNM6rLXyWhW2vcdJsnJ7U3ZLFvVn14A4/exec" target="respuestaFrame" onsubmit="return antesDeEnviar();">
-      <input type="hidden" name="accion" value="registroCamaraExterna">
+      <input type="hidden" id="accion" name="accion" value="registroCamaraExterna">
       <input type="hidden" name="tokenCamara" value="D139-CAMARA-2026">
       <input type="hidden" id="fotoDataUrl" name="fotoDataUrl">
 
-      <div class="grid">
-        <div class="campo">
-          <label>RUN o identificador</label>
-          <input name="run" id="run" placeholder="Opcional">
-        </div>
+      <div id="formNuevoEstudiante" class="grid">
+        <div class="campo"><label>RUN o identificador</label><input name="run" id="run" placeholder="Opcional"></div>
+        <div class="campo"><label>Curso</label><input name="curso" id="curso" placeholder="Ej: 5°A"></div>
+        <div class="campo full"><label>Nombre estudiante</label><input name="nombre" id="nombre" placeholder="Nombre completo"></div>
+        <div class="campo"><label>Apoderado</label><input name="apoderado" id="apoderado" placeholder="Opcional"></div>
+        <div class="campo"><label>Teléfono</label><input name="telefono" id="telefono" placeholder="Opcional"></div>
+      </div>
 
-        <div class="campo">
-          <label>Curso</label>
-          <input name="curso" id="curso" placeholder="Ej: 5°A" required>
-        </div>
-
-        <div class="campo full">
-          <label>Nombre estudiante</label>
-          <input name="nombre" id="nombre" placeholder="Nombre completo" required>
-        </div>
-
-        <div class="campo">
-          <label>Apoderado</label>
-          <input name="apoderado" id="apoderado" placeholder="Opcional">
-        </div>
-
-        <div class="campo">
-          <label>Teléfono</label>
-          <input name="telefono" id="telefono" placeholder="Opcional">
-        </div>
+      <div id="formSeleccionEstudiante" class="grid oculto">
+        <div class="campo full"><label>Buscar estudiante</label><input id="buscar" placeholder="Nombre, curso o RUN" onkeyup="filtrarEstudiantes()"></div>
+        <div class="campo full"><label>Estudiante</label><select id="idEstudiante" name="idEstudiante"></select></div>
+        <div id="campoMotivo" class="campo"><label>Motivo atraso</label><select id="motivo" name="motivo"><option>Llegada tardía</option><option>Transporte</option><option>Salud</option><option>Trámite familiar</option><option>Otro</option></select></div>
+        <div id="campoServicio" class="campo oculto"><label>Servicio comedor</label><select id="servicio" name="servicio"><option>Desayuno</option><option>Almuerzo</option><option>Colación</option></select></div>
+        <div class="campo"><label>Observación</label><input id="observacion" name="observacion" placeholder="Opcional"></div>
       </div>
 
       <div class="acciones">
         <button type="button" class="oscuro" onclick="activarCamara()">Activar cámara</button>
         <button type="button" class="naranjo" onclick="capturarFoto()">Capturar foto</button>
-        <button type="submit" class="verde">Guardar registro con foto</button>
-        <button type="button" class="rojo" onclick="limpiarFormularioRapido()">Limpiar para siguiente</button>
+        <button type="submit" class="verde" id="btnGuardar">Guardar</button>
+        <button type="button" class="rojo" onclick="limpiarFormularioRapido()">Limpiar</button>
       </div>
     </form>
   </section>
 
   <section class="panel">
     <div class="camara-box">
-      <div>
-        <video id="video" autoplay playsinline muted></video>
-        <canvas id="canvas"></canvas>
-      </div>
-      <div>
-        <div id="preview" class="preview"></div>
-        <div class="nota">
-          Primero active la cámara, luego capture la foto y guarde. La cámara queda encendida para registrar varios estudiantes más rápido.
-        </div>
-      </div>
+      <div><video id="video" autoplay playsinline muted></video><canvas id="canvas"></canvas></div>
+      <div><div id="preview" class="preview"></div><div class="nota">Primero active la cámara, capture la foto y guarde. La cámara puede quedar encendida para hacer registros rápidos.</div></div>
     </div>
   </section>
 
@@ -186,11 +111,59 @@
 const WEB_APP_URL = "https://script.google.com/a/macros/cmdsantofagasta.cl/s/AKfycbyTd4KrRTDpJnrdUUAxMSWcdSAgE4SPnJGlfNM6rLXyWhW2vcdJsnJ7U3ZLFvVn14A4/exec";
 let streamCamara = null;
 let fotoActual = "";
+let modo = "registro";
+let estudiantes = [];
 
 function mostrarEstado(texto, tipo) {
   const e = document.getElementById("estado");
   e.className = "estado" + (tipo ? " " + tipo : "");
   e.textContent = texto;
+}
+
+function obtenerModoUrl() {
+  const p = new URLSearchParams(window.location.search);
+  return p.get("modo") || "registro";
+}
+
+function cambiarModo(nuevoModo) {
+  modo = nuevoModo || "registro";
+
+  document.getElementById("btnRegistro").classList.toggle("activo", modo === "registro");
+  document.getElementById("btnAtraso").classList.toggle("activo", modo === "atraso");
+  document.getElementById("btnComedor").classList.toggle("activo", modo === "comedor");
+
+  document.getElementById("formNuevoEstudiante").classList.toggle("oculto", modo !== "registro");
+  document.getElementById("formSeleccionEstudiante").classList.toggle("oculto", modo === "registro");
+  document.getElementById("campoMotivo").classList.toggle("oculto", modo !== "atraso");
+  document.getElementById("campoServicio").classList.toggle("oculto", modo !== "comedor");
+
+  if (modo === "registro") {
+    document.getElementById("accion").value = "registroCamaraExterna";
+    document.getElementById("tituloPrincipal").textContent = "Registrar estudiante con cámara";
+    document.getElementById("subtituloPrincipal").textContent = "Crear estudiante y guardar foto de respaldo.";
+    document.getElementById("modoActualTexto").textContent = "Registro estudiante";
+    document.getElementById("btnGuardar").textContent = "Guardar estudiante con foto";
+  }
+
+  if (modo === "atraso") {
+    document.getElementById("accion").value = "atrasoCamaraExterna";
+    document.getElementById("tituloPrincipal").textContent = "Registrar atraso con cámara";
+    document.getElementById("subtituloPrincipal").textContent = "Seleccionar estudiante, capturar foto y guardar atraso.";
+    document.getElementById("modoActualTexto").textContent = "Atraso";
+    document.getElementById("btnGuardar").textContent = "Guardar atraso";
+    cargarEstudiantesSiNecesario();
+  }
+
+  if (modo === "comedor") {
+    document.getElementById("accion").value = "comedorCamaraExterna";
+    document.getElementById("tituloPrincipal").textContent = "Registrar comedor con cámara";
+    document.getElementById("subtituloPrincipal").textContent = "Seleccionar estudiante, capturar foto y guardar servicio.";
+    document.getElementById("modoActualTexto").textContent = "Comedor";
+    document.getElementById("btnGuardar").textContent = "Guardar comedor";
+    cargarEstudiantesSiNecesario();
+  }
+
+  mostrarEstado("Modo activo: " + document.getElementById("modoActualTexto").textContent, "ok");
 }
 
 async function activarCamara() {
@@ -209,11 +182,7 @@ async function activarCamara() {
     }
 
     streamCamara = await navigator.mediaDevices.getUserMedia({
-      video: {
-        width: { ideal: 1280 },
-        height: { ideal: 720 },
-        facingMode: "user"
-      },
+      video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: "user" },
       audio: false
     });
 
@@ -258,16 +227,70 @@ function capturarFoto() {
   preview.style.display = "block";
   preview.innerHTML = "<strong>Foto capturada:</strong><br><img src='" + fotoActual + "'>";
 
-  mostrarEstado("Foto capturada. Ahora presione Guardar registro con foto.", "ok");
+  mostrarEstado("Foto capturada. Ahora presione guardar.", "ok");
+}
+
+function cargarEstudiantesSiNecesario() {
+  if (estudiantes.length) {
+    pintarEstudiantes(estudiantes);
+    return;
+  }
+
+  mostrarEstado("Cargando estudiantes...", "");
+
+  const callback = "cbEstudiantes_" + Date.now();
+  window[callback] = function(resp) {
+    try {
+      estudiantes = resp && resp.estudiantes ? resp.estudiantes : [];
+      pintarEstudiantes(estudiantes);
+      mostrarEstado("Estudiantes cargados: " + estudiantes.length, "ok");
+    } finally {
+      delete window[callback];
+      const s = document.getElementById(callback);
+      if (s) s.remove();
+    }
+  };
+
+  const script = document.createElement("script");
+  script.id = callback;
+  script.src = WEB_APP_URL + "?api=estudiantes&callback=" + callback;
+  script.onerror = function() {
+    mostrarEstado("No se pudieron cargar estudiantes desde Apps Script.", "error");
+  };
+  document.body.appendChild(script);
+}
+
+function pintarEstudiantes(lista) {
+  let html = "";
+  for (let i = 0; i < lista.length; i++) {
+    const e = lista[i];
+    html += "<option value='" + escapeHtml(e.id) + "'>" + escapeHtml(e.nombre) + " - " + escapeHtml(e.curso) + " - " + escapeHtml(e.run || "") + "</option>";
+  }
+  document.getElementById("idEstudiante").innerHTML = html;
+}
+
+function filtrarEstudiantes() {
+  const q = document.getElementById("buscar").value.toLowerCase().trim();
+  const f = estudiantes.filter(function(e) {
+    return (String(e.nombre || "") + " " + String(e.curso || "") + " " + String(e.run || "")).toLowerCase().indexOf(q) >= 0;
+  });
+  pintarEstudiantes(f);
 }
 
 function antesDeEnviar() {
-  const nombre = document.getElementById("nombre").value.trim();
-  const curso = document.getElementById("curso").value.trim();
-
-  if (!nombre || !curso) {
-    mostrarEstado("Debe ingresar nombre y curso.", "error");
-    return false;
+  if (modo === "registro") {
+    const nombre = document.getElementById("nombre").value.trim();
+    const curso = document.getElementById("curso").value.trim();
+    if (!nombre || !curso) {
+      mostrarEstado("Debe ingresar nombre y curso.", "error");
+      return false;
+    }
+  } else {
+    const id = document.getElementById("idEstudiante").value;
+    if (!id) {
+      mostrarEstado("Debe seleccionar estudiante.", "error");
+      return false;
+    }
   }
 
   if (!document.getElementById("fotoDataUrl").value) {
@@ -276,9 +299,8 @@ function antesDeEnviar() {
   }
 
   mostrarEstado("Enviando registro a Google Sheets / Drive...", "ok");
-
   setTimeout(function() {
-    mostrarEstado("Registro enviado. Revise la respuesta abajo. Puede limpiar para el siguiente estudiante.", "ok");
+    mostrarEstado("Registro enviado. Revise la respuesta abajo. Puede limpiar para el siguiente.", "ok");
   }, 1200);
 
   return true;
@@ -290,6 +312,7 @@ function limpiarFormularioRapido() {
   document.getElementById("nombre").value = "";
   document.getElementById("apoderado").value = "";
   document.getElementById("telefono").value = "";
+  document.getElementById("observacion").value = "";
   document.getElementById("fotoDataUrl").value = "";
   fotoActual = "";
 
@@ -297,9 +320,24 @@ function limpiarFormularioRapido() {
   preview.style.display = "none";
   preview.innerHTML = "";
 
-  document.getElementById("nombre").focus();
-  mostrarEstado("Listo para registrar el siguiente estudiante. La cámara puede quedar activa.", "ok");
+  if (modo === "registro") document.getElementById("nombre").focus();
+  else document.getElementById("buscar").focus();
+
+  mostrarEstado("Listo para el siguiente registro. La cámara puede quedar activa.", "ok");
 }
+
+function escapeHtml(t) {
+  return String(t || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+window.onload = function() {
+  cambiarModo(obtenerModoUrl());
+};
 </script>
 </body>
 </html>
